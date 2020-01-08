@@ -1,0 +1,46 @@
+<html>
+
+
+<meta charset="utf-8">
+<title>Carson_Ho</title>
+
+<br/>
+<p id="demo">12345</p>
+
+<br/>
+<button type="button" onclick="callAndroidByObjectMap()">点击 通过对象映射调动android代码</button>
+
+<br/>
+<button type="button" onclick="callAndroidByLoadUrl()">点击 通过重载url调动android代码</button>
+
+<button type="button" onclick="clickPrompt()">点击 通过Prompt调动android代码</button>
+
+
+<script>
+
+        function callByAndroidLoadUrl(){
+            document.getElementById("demo").innerHTML = "109876"
+        }
+
+        function callByAndroidEvaluateJavascript(){
+            document.getElementById("demo").innerHTML = "678910"
+            return "hahaha"
+        }
+
+        function callAndroidByObjectMap(){
+            invokeByJS.showMsg("js调用了android中的hello方法");
+         }
+
+        function callAndroidByLoadUrl(){
+              document.location = "js://tosat?msg=通过拦截url调用android";
+        }
+
+
+      function clickPrompt(){
+         var result=prompt("js://tosat?msg=通过prompt调用android");
+      }
+
+</script>
+
+
+</html>
