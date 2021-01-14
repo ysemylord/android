@@ -10,15 +10,32 @@ android {
     defaultConfig {
         applicationId "com.work.webviewandandroid"
         minSdkVersion 20
-        targetSdkVersion 29
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+
+        release {
+            keyAlias 'alias'
+            keyPassword '123456'
+            storeFile file('../webview.key')
+            storePassword '123456'
+        }
+    }
+
     buildTypes {
+
+        debug{
+            signingConfig signingConfigs.release
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
@@ -32,4 +49,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'pub.devrel:easypermissions:3.0.0'
+
+    implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation 'com.google.code.gson:gson:2.8.5'
 }

@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
         // 设置允许JS弹窗
         settings.javaScriptCanOpenWindowsAutomatically = true
 
-        web_view.loadUrl("file:///android_asset/my.html")
+
+        web_view.loadUrl("file:///android_asset/main.html")
 
         invokeByJs()
 
